@@ -42,7 +42,7 @@ namespace bpp
 	protected:
 	private:
 
-		static FactoryContainer<T*>*& InternalInstance();
+		static FactoryContainer<T*>*& InternalInstance( bool createIfNotInstanced = true );
 
 		std::vector< T* > m_Items;
 	};

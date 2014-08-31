@@ -6,10 +6,10 @@ namespace bpp
 {
 	
 	template < class T >
-	inline FactoryContainer<T*>*& bpp::FactoryContainer<T>::InternalInstance()
+	inline FactoryContainer<T*>*& bpp::FactoryContainer<T>::InternalInstance( bool createIfNotInstanced )
 	{
 		static FactoryContainer<T*>* instance = nullptr;
-		if (instance == nullptr)
+		if (instance == nullptr && createIfNotInstanced)
 		{
 			instance = new FactoryContainer<T*>();
 		}
@@ -20,7 +20,7 @@ namespace bpp
 	template < class T >
 	inline void bpp::FactoryContainer<T>::Release()
 	{
-		FactoryContainer<T*>*& instance = InternalInstance();
+		FactoryContainer<T*>*& instance = InternalInstance( false );
 		if (instance != nullptr)
 		{
 			delete instance;
