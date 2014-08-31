@@ -4,6 +4,13 @@
 
 namespace bpp
 {
+	inline Benchmarker::Benchmarker( void ) : 
+		m_CurrentScope( nullptr )
+	{
+
+	}
+
+
 	inline BenchmarkScope* Benchmarker::Scope( const std::string& name ) const
 	{
 		const std::vector<BenchmarkScope*>& items = Benchmarker::ScopeContainer::Instance().FactoryItems();
@@ -19,6 +26,17 @@ namespace bpp
 		Benchmarker::ScopeContainer::Instance().AddItem( newScope );
 
 		return newScope;
+	}
+
+
+	inline BenchmarkScope* Benchmarker::CurrentScope( void ) const
+	{
+		return m_CurrentScope;
+	}
+
+	inline void Benchmarker::CurrentScope( BenchmarkScope* scope )
+	{
+		m_CurrentScope = scope;
 	}
 
 	inline void Benchmarker::Release( void )

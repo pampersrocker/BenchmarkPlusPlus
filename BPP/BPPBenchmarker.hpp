@@ -17,6 +17,8 @@ namespace bpp
 	{
 	public:
 
+		Benchmarker( void );
+
 		typedef FactoryContainer<BenchmarkScope*> ScopeContainer;
 
 		/**
@@ -39,10 +41,15 @@ namespace bpp
 		*/
 		static Benchmarker& Instance( void );
 
+		BenchmarkScope* CurrentScope( void ) const;
+		void CurrentScope( BenchmarkScope* scope );
+
 
 
 	protected:
 	private:
+
+		BenchmarkScope* m_CurrentScope;
 
 		static Benchmarker*& InternalInstance( bool createIfNotInstanced = true );
 
