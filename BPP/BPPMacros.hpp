@@ -5,6 +5,9 @@
 #define BPP_TO_STRING2( param ) #param
 #define BPP_TO_STRING( param ) BPP_TO_STRING2( param )
 
+#define BPP_CONCAT2( x, y ) x ## y
+#define BPP_CONCAT( x, y ) BPP_CONCAT2( x, y )
+
 #define BPP_BEGIN_BENCHMARK( scope, benchmarkName )															\
 	class BPP_##scope##benchmarkName : public ::bpp::BenchmarkarbleItem										\
 	{																										\
@@ -25,7 +28,7 @@
 
 #define BPP_END_BENCHMARK(scope, benchmarkName )								\
 	};																			\
-	BPP_##scope##benchmarkName global##BPP_##scope##benchmarkName##__LINE__##(BPP_TO_STRING(BPP_CURRENT_BENCHMARK_NAME) );
+	BPP_##scope##benchmarkName BPP_CONCAT(global_##BPP_##scope##_##benchmarkName##_, __LINE__)  ( BPP_TO_STRING(benchmarkName) );
 
 
 #endif // BPPMacros_h__
