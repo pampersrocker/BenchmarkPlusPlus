@@ -84,8 +84,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\BPP\bpp.hpp" />
+    <ClInclude Include="..\..\BPP\BPPBenchmarker.hpp" />
     <ClInclude Include="..\..\BPP\BPPFactoryContainer.hpp" />
     <ClInclude Include="..\..\BPP\BPPFactoryItem.hpp" />
+    <ClInclude Include="..\..\BPP\BPPScope.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
