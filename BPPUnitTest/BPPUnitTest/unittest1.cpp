@@ -3,6 +3,8 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
+#include "bpp.hpp"
+
 namespace BPPUnitTest
 {		
 	TEST_CLASS(UnitTest1)
