@@ -20,9 +20,9 @@ namespace bpp
 	{
 	public:
 
-		void AddFactoryItem( T* item );
+		void AddItem( const T& item );
 
-		const std::vector< T* >& FactoryItems( void ) const;
+		const std::vector< T >& FactoryItems( void ) const;
 
 		/**
 		\brief Returns a new instance of the FactoryContainer if no instance was yet created 
@@ -31,7 +31,7 @@ namespace bpp
 		Will generated a new instance if the old one was deleted using the Release() method.
 		
 		*/
-		static FactoryContainer<T*>& Instance();
+		static FactoryContainer<T>& Instance();
 
 		/**
 		\brief Destroys the current instance, if any.
@@ -42,9 +42,9 @@ namespace bpp
 	protected:
 	private:
 
-		static FactoryContainer<T*>*& InternalInstance( bool createIfNotInstanced = true );
+		static FactoryContainer<T>*& InternalInstance( bool createIfNotInstanced = true );
 
-		std::vector< T* > m_Items;
+		std::vector< T > m_Items;
 	};
 }
 

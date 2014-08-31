@@ -15,9 +15,9 @@ namespace bpp
 
 		void AddItemToScope( IFactoryItem* item );
 
-		std::vector< IFactoryItem* >& Items( void ) const;
+		const std::vector< IFactoryItem* >& Items( void ) const;
 
-		const std::string& ScopeName( void ) const;
+		const std::string& Name( void ) const;
 
 	protected:
 	private:
@@ -26,5 +26,7 @@ namespace bpp
 		std::string m_Name;
 	};
 }
+
+#include "BPPScope.inl"
 
 #endif // BPPScope_hpp__

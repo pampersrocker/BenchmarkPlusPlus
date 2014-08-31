@@ -49,5 +49,11 @@
     <None Include="..\..\BPP\BPPFactoryContainer.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="..\..\BPP\BPPBenchmarker.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\..\BPP\BPPScope.inl">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

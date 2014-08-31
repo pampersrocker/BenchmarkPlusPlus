@@ -4,6 +4,7 @@
 
 #include "BPPFactoryItem.hpp"
 #include "BPPFactoryContainer.hpp"
-
+#include "BPPScope.hpp"
+#include "BPPBenchmarker.hpp"
 
 #endif // bpp_h__

@@ -6,12 +6,12 @@ namespace bpp
 {
 	
 	template < class T >
-	inline FactoryContainer<T*>*& bpp::FactoryContainer<T>::InternalInstance( bool createIfNotInstanced )
+	inline FactoryContainer<T>*& bpp::FactoryContainer<T>::InternalInstance( bool createIfNotInstanced )
 	{
-		static FactoryContainer<T*>* instance = nullptr;
+		static FactoryContainer<T>* instance = nullptr;
 		if (instance == nullptr && createIfNotInstanced)
 		{
-			instance = new FactoryContainer<T*>();
+			instance = new FactoryContainer<T>();
 		}
 
 		return instance;
@@ -20,7 +20,7 @@ namespace bpp
 	template < class T >
 	inline void bpp::FactoryContainer<T>::Release()
 	{
-		FactoryContainer<T*>*& instance = InternalInstance( false );
+		FactoryContainer<T>*& instance = InternalInstance( false );
 		if (instance != nullptr)
 		{
 			delete instance;
@@ -29,23 +29,23 @@ namespace bpp
 	}
 
 	template < class T >
-	inline FactoryContainer<T*>& bpp::FactoryContainer<T>::Instance()
+	inline FactoryContainer<T>& bpp::FactoryContainer<T>::Instance()
 	{
 		return *InternalInstance();
 	}
 
 	template < class T >
-	inline const std::vector< T* >& bpp::FactoryContainer<T>::FactoryItems( void ) const
+	inline const std::vector< T >& bpp::FactoryContainer<T>::FactoryItems( void ) const
 	{
-		return m_List;
+		return m_Items;
 	}
 
 	template < class T >
-	inline void bpp::FactoryContainer<T>::AddFactoryItem( T* item )
+	inline void bpp::FactoryContainer<T>::AddItem( const T& item )
 	{
 		if( item != nullptr )
 		{
-			m_List.push_back( item );
+			m_Items.push_back( item );
 		}
 	}
 }

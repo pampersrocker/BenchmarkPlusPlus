@@ -99,7 +99,9 @@
     <ClCompile Include="unittest1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\BPP\BPPBenchmarker.inl" />
     <None Include="..\..\BPP\BPPFactoryContainer.inl" />
+    <None Include="..\..\BPP\BPPScope.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
