@@ -14,10 +14,12 @@ namespace bpp
 
 		const std::vector<Result>& Results( void ) const;
 
+		const std::string& ScopeName() const;
+
 	private:
 
 		std::string m_ScopeName;
-
+		
 		std::vector<Result> m_Results;
 	};
 

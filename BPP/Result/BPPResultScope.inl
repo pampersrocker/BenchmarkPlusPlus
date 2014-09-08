@@ -25,6 +25,11 @@ namespace bpp
 	{
 		return m_Results;
 	}
+
+	inline const std::string& ResultScope::ScopeName() const
+	{
+		return m_ScopeName;
+	}
 }
 
 #endif // ResultScope_inl__
