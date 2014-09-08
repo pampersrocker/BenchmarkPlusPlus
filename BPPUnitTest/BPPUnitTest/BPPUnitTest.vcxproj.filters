@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\bpp">
+      <UniqueIdentifier>{6acdffa1-e6a8-4072-91b6-9c25783142ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\bpp\inl">
+      <UniqueIdentifier>{3cd50423-1199-4ddc-86f9-5507fe8c02a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -22,25 +28,25 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\BPP\bpp.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\BPP\BPPFactoryItem.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\BPP\BPPFactoryContainer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\BPP\BPPBenchmarker.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\BPP\BPPScope.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\bpp</Filter>
     </ClInclude>
     <ClInclude Include="..\..\BPP\BPPBenchmarkableItem.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\bpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\BPP\BPPBenchmarker.hpp">
+      <Filter>Header Files\bpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\BPP\BPPFactoryContainer.hpp">
+      <Filter>Header Files\bpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\BPP\BPPFactoryItem.hpp">
+      <Filter>Header Files\bpp</Filter>
     </ClInclude>
     <ClInclude Include="..\..\BPP\BPPMacros.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\bpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\BPP\BPPScope.hpp">
+      <Filter>Header Files\bpp</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -55,14 +61,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\BPP\BPPFactoryContainer.inl">
-      <Filter>Header Files</Filter>
-    </None>
     <None Include="..\..\BPP\BPPBenchmarker.inl">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\bpp\inl</Filter>
+    </None>
+    <None Include="..\..\BPP\BPPFactoryContainer.inl">
+      <Filter>Header Files\bpp\inl</Filter>
     </None>
     <None Include="..\..\BPP\BPPScope.inl">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\bpp\inl</Filter>
     </None>
   </ItemGroup>
 </Project>
