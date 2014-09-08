@@ -93,6 +93,7 @@
     <ClInclude Include="..\..\BPP\Factory\BPPFactoryItem.hpp" />
     <ClInclude Include="..\..\BPP\Factory\BPPScope.hpp" />
     <ClInclude Include="..\..\BPP\Result\BPPResult.hpp" />
+    <ClInclude Include="..\..\BPP\Result\BPPResultScope.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -113,6 +114,7 @@
     <None Include="..\..\BPP\Factory\BPPFactoryContainer.inl" />
     <None Include="..\..\BPP\Factory\BPPScope.inl" />
     <None Include="..\..\BPP\Result\BPPResult.inl" />
+    <None Include="..\..\BPP\Result\BPPResultScope.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

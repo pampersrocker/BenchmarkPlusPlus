@@ -63,6 +63,9 @@
     <ClInclude Include="..\..\BPP\BPPMacros.hpp">
       <Filter>Header Files\bpp</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\BPP\Result\BPPResultScope.hpp">
+      <Filter>Header Files\bpp\Result</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -93,6 +96,9 @@
     </None>
     <None Include="..\..\BPP\BPPBenchmarker.inl">
       <Filter>Header Files\bpp</Filter>
+    </None>
+    <None Include="..\..\BPP\Result\BPPResultScope.inl">
+      <Filter>Header Files\bpp\Result</Filter>
     </None>
   </ItemGroup>
 </Project>
