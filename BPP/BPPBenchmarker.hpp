@@ -2,6 +2,7 @@
 #ifndef BPPBenchmarker_h__
 #define BPPBenchmarker_h__
 #include <string>
+#include <map>
 namespace bpp
 {
 	class BenchmarkScope;
@@ -41,6 +42,12 @@ namespace bpp
 		*/
 		static Benchmarker& Instance( void );
 
+		/**
+		\brief Runs the registered Tests in the scopes and saves the results for the logger.
+		
+		*/
+		void Run( void );
+
 		BenchmarkScope* CurrentScope( void ) const;
 		void CurrentScope( BenchmarkScope* scope );
 
@@ -48,6 +55,8 @@ namespace bpp
 
 	protected:
 	private:
+
+		std::map<std::string, ResultScope*> m_Results;
 
 		BenchmarkScope* m_CurrentScope;
 
