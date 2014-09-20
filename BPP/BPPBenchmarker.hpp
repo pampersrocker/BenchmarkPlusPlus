@@ -12,13 +12,27 @@ namespace bpp
 	/**
 	\brief The main class for benchmarking. Contains all scopes used for benchmarking, runs the benchmarks itself
 	and uses writers to print the output.
+
+	Typical Usage:
+	\code{.cpp}
+	void main()
+	{
+		Benchmarker& instance = Benchmarker::Instance();
+
+		MyLogger logger("SomeFile.log"); //Placeholder for your logger
+		instance.AddLogger(&logger);
+		instance.Run();
+		instance.Log();
+
+		instance.Release();
+	}
+	\endcode
 	
 	*/
 	class Benchmarker
 	{
 	public:
 
-		Benchmarker( void );
 
 		typedef FactoryContainer<BenchmarkScope*> ScopeContainer;
 
@@ -51,18 +65,42 @@ namespace bpp
 		BenchmarkScope* CurrentScope( void ) const;
 		void CurrentScope( BenchmarkScope* scope );
 
+		/**
+		\brief Adds a logger to the logging queue.
 
+		The logger will be initialized, called and released in the Log() Method.
+		The ownership of the logger is kept by the caller of this method.
+		
+		*/
+		void AddLogger( ILogger* logger );
+
+		/**
+		\brief Logs the results using the logger which were added.
+		Calling this method only makes sense after the Benchmarks has been performed using the Run() Method.
+
+		Loggers are going to be initialized, called and released during this process.
+
+		This is basically a NOP if no loggers were added to the Benchmarker.
+		
+		*/
+		void Log( void );
 
 	protected:
 	private:
 
-		std::map<std::string, ResultScope*> m_Results;
+		Benchmarker( const Benchmarker& rhs ) = delete;
+		Benchmarker( void );
+
+		std::vector< ILogger* > m_Logger;
+
+		std::vector<ResultScope*> m_Results;
 
 		BenchmarkScope* m_CurrentScope;
 
 		static Benchmarker*& InternalInstance( bool createIfNotInstanced = true );
 
 	};
+
 
 }
 

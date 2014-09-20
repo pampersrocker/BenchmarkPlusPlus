@@ -19,7 +19,7 @@ namespace bpp
 
 		inline virtual void Release( void ) override { }
 
-		const std::string Name( void ) const;
+		inline const std::string& Name( void ) const { return m_Name; }
 
 	protected:
 	private:

@@ -5,7 +5,9 @@
 namespace bpp
 {
 	inline Benchmarker::Benchmarker( void ) : 
-		m_CurrentScope( nullptr )
+		m_CurrentScope( nullptr ),
+		m_Logger(),
+		m_Results()
 	{
 
 	}
@@ -55,7 +57,23 @@ namespace bpp
 				Result result( ( endPoint - startPoint ), static_cast< BenchmarkarbleItem* >( item ), scope );
 				resultScope->AddResult( result );
 			}
-			m_Results[ scope->Name() ] = resultScope;
+			m_Results.push_back( resultScope );
+		}
+	}
+
+
+	inline void Benchmarker::AddLogger( ILogger* logger )
+	{
+		m_Logger.push_back( logger );
+	}
+
+	inline void Benchmarker::Log( void )
+	{
+		for( ILogger* logger : m_Logger )
+		{
+			logger->Initialize();
+			logger->Log( m_Results );
+			logger->Release();
 		}
 	}
 
@@ -68,9 +86,9 @@ namespace bpp
 		Benchmarker*& instance = InternalInstance( false );
 		if (instance != nullptr)
 		{
-			for( auto& it : instance->m_Results )
+			for( auto* it : instance->m_Results )
 			{
-				delete it.second;
+				delete it;
 			}
 			instance->m_Results.clear();
 			delete instance;
