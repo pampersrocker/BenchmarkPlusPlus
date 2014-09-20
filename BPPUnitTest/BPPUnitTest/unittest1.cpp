@@ -4,6 +4,9 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 #include "bpp.hpp"
+#include "Logging/BPPDefaultConsoleLogger.hpp"
+
+using namespace bpp;
 
 namespace BPPUnitTest
 {		
@@ -13,7 +16,16 @@ namespace BPPUnitTest
 		
 		TEST_METHOD(TestMethod1)
 		{
-			// TODO: Your test code here
+			Benchmarker& instance = Benchmarker::Instance();
+
+			DefaultConsoleLogger logger;
+
+			instance.AddLogger( &logger );
+			instance.Run();
+
+			instance.Log();
+
+			instance.Release();
 		}
 
 	};

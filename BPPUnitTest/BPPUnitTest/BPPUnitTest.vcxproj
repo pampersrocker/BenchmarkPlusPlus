@@ -92,12 +92,16 @@
     <ClInclude Include="..\..\BPP\Factory\BPPFactoryContainer.hpp" />
     <ClInclude Include="..\..\BPP\Factory\BPPFactoryItem.hpp" />
     <ClInclude Include="..\..\BPP\Factory\BPPScope.hpp" />
+    <ClInclude Include="..\..\BPP\Logging\BPPDefaultConsoleLogger.hpp" />
     <ClInclude Include="..\..\BPP\Result\BPPResult.hpp" />
     <ClInclude Include="..\..\BPP\Result\BPPResultScope.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\BPP\Logging\BPPILogger.hpp">
+      <FileType>CppCode</FileType>
+    </ClInclude>
     <ClCompile Include="PreprocessorTester.cpp">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
     </ClCompile>
@@ -113,6 +117,7 @@
     <None Include="..\..\BPP\Chrono\BPPTimeSpan.inl" />
     <None Include="..\..\BPP\Factory\BPPFactoryContainer.inl" />
     <None Include="..\..\BPP\Factory\BPPScope.inl" />
+    <None Include="..\..\BPP\Logging\BPPDefaultConsoleLogger.inl" />
     <None Include="..\..\BPP\Result\BPPResult.inl" />
     <None Include="..\..\BPP\Result\BPPResultScope.inl" />
   </ItemGroup>
