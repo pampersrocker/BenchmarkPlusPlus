@@ -85,9 +85,30 @@ namespace bpp
 		*/
 		void Log( void );
 
+		
+		/**
+		\brief Sets the iterations of the Benchmarker
+
+		The iterations determines how often the benchmarks are repeated to reduce side effects of spontaneous spikes
+		Keep in mind that if set to greater than 1 the tests need to be repeatable. If the tests are not repeatable, 
+		set the iteration to 1
+		
+		\param val How often the tests will be repeated, value of 0 or 1 has the same effect
+		*/
+		void Iterations( unsigned int val );
+
+		/**
+		\brief Returns the current iteration of the Benchmarker, 
+		this can be changed by using the Iterations( unsigned int ) Method
+		
+		*/
+		unsigned int Iterations( void ) const;
+
+
 	protected:
 	private:
 
+		unsigned int m_Iterations;
 		Benchmarker( const Benchmarker& rhs ) = delete;
 		Benchmarker( void );
 

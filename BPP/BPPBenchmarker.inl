@@ -4,12 +4,12 @@
 
 namespace bpp
 {
-	inline Benchmarker::Benchmarker( void ) : 
+	inline Benchmarker::Benchmarker( void ) :
 		m_CurrentScope( nullptr ),
 		m_Logger(),
-		m_Results()
+		m_Results(),
+		m_Iterations( 1U )
 	{
-
 	}
 
 
