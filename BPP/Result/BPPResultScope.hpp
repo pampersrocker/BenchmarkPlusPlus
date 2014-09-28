@@ -10,9 +10,9 @@ namespace bpp
 		ResultScope(const std::string& scopeName);
 		~ResultScope();
 
-		void AddResult( const Result& result );
+		void AddResult( const ResultContainer& result );
 
-		const std::vector<Result>& Results( void ) const;
+		const std::vector<ResultContainer>& Results( void ) const;
 
 		const std::string& ScopeName() const;
 
@@ -20,7 +20,7 @@ namespace bpp
 
 		std::string m_ScopeName;
 		
-		std::vector<Result> m_Results;
+		std::vector<ResultContainer> m_Results;
 	};
 
 

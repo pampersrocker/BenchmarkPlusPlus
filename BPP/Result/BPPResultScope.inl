@@ -16,12 +16,12 @@ namespace bpp
 
 	}
 
-	inline void ResultScope::AddResult( const Result& result )
+	inline void ResultScope::AddResult( const ResultContainer& result )
 	{
 		m_Results.push_back( result );
 	}
 
-	inline const std::vector<Result>& ResultScope::Results( void ) const
+	inline const std::vector<ResultContainer>& ResultScope::Results( void ) const
 	{
 		return m_Results;
 	}

@@ -123,6 +123,7 @@ namespace bpp
 	};
 
 
+
 }
 
 #include "BPPBenchmarker.inl"

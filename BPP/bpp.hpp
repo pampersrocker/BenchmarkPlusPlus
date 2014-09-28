@@ -11,6 +11,7 @@
 #include "Chrono/BPPTimeSpan.hpp"
 #include "Chrono/BPPTimePoint.hpp"
 #include "Result/BPPResult.hpp"
+#include "Result/ResultContainer.hpp"
 #include "Result/BPPResultScope.hpp"
 #include "Logging/BPPILogger.hpp"
 #include "BPPBenchmarker.hpp"

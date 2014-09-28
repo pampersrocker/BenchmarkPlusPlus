@@ -95,6 +95,7 @@
     <ClInclude Include="..\..\BPP\Logging\BPPDefaultConsoleLogger.hpp" />
     <ClInclude Include="..\..\BPP\Result\BPPResult.hpp" />
     <ClInclude Include="..\..\BPP\Result\BPPResultScope.hpp" />
+    <ClInclude Include="..\..\BPP\Result\ResultContainer.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -120,6 +121,7 @@
     <None Include="..\..\BPP\Logging\BPPDefaultConsoleLogger.inl" />
     <None Include="..\..\BPP\Result\BPPResult.inl" />
     <None Include="..\..\BPP\Result\BPPResultScope.inl" />
+    <None Include="..\..\BPP\Result\ResultContainer.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

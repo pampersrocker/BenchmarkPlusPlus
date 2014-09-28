@@ -42,6 +42,23 @@ namespace bpp
 	}
 
 
+	inline void Benchmarker::Iterations( unsigned int val )
+	{
+		if( val > 1U )
+		{
+			m_Iterations = val;
+		}
+		else
+		{
+			m_Iterations = 1U;
+		}
+	}
+
+	inline unsigned int Benchmarker::Iterations( void ) const
+	{
+		return m_Iterations;
+	}
+
 	inline void Benchmarker::Run( void )
 	{
 		for( BenchmarkScope* scope : ScopeContainer::Instance().FactoryItems() )
@@ -49,13 +66,18 @@ namespace bpp
 			ResultScope* resultScope = new ResultScope( scope->Name() );
 			for( IFactoryItem* item : scope->Items() )
 			{
-				item->Initialize();
-				TimePoint startPoint = TimePoint::Now();
-				item->Run();
-				TimePoint endPoint = TimePoint::Now();
-				item->Release();
-				Result result( ( endPoint - startPoint ), static_cast< BenchmarkarbleItem* >( item ), scope );
-				resultScope->AddResult( result );
+				ResultContainer resultContainer( static_cast< BenchmarkarbleItem* >( item ), scope, m_Iterations );
+				for( size_t i = 0; i < m_Iterations; i++ )
+				{
+					item->Initialize();
+					TimePoint startPoint = TimePoint::Now();
+					item->Run();
+					TimePoint endPoint = TimePoint::Now();
+					item->Release();
+					Result result( ( endPoint - startPoint ), static_cast< BenchmarkarbleItem* >( item ), scope );
+					resultContainer.AddResult( result );
+				}
+				resultScope->AddResult( resultContainer );
 			}
 			m_Results.push_back( resultScope );
 		}
