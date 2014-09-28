@@ -17,6 +17,37 @@ namespace bpp
 
 	}
 
+
+	inline TimeSpan::TimeSpan( void ) :
+		m_Span( 0 )
+	{
+
+	}
+
+	inline bpp::TimeSpan TimeSpan::operator+( const TimeSpan& rhs ) const
+	{
+		return TimeSpan( m_Span + rhs.m_Span );
+	}
+
+	inline TimeSpan& TimeSpan::operator+=( const TimeSpan& rhs )
+	{
+		m_Span += rhs.m_Span;
+		return *this;
+
+	}
+
+	inline bpp::TimeSpan TimeSpan::operator-( const TimeSpan& rhs ) const
+	{
+		return TimeSpan( m_Span - rhs.m_Span );
+	}
+
+	inline TimeSpan& TimeSpan::operator-=( const TimeSpan& rhs )
+	{
+		m_Span -= rhs.m_Span;
+		return *this;
+	}
+
+
 	inline TimeSpan::~TimeSpan()
 	{
 

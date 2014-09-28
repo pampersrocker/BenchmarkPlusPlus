@@ -9,14 +9,25 @@ namespace bpp
 	public:
 		TimeSpan(const LONGLONG& span);
 		TimeSpan( const TimeSpan& span );
+		TimeSpan( void );
 		~TimeSpan();
 
 		double Seconds( void ) const;
 		LONGLONG Ticks( void ) const;
 		double Microseconds( void ) const;
+
+		TimeSpan operator +( const TimeSpan& rhs ) const;
+		TimeSpan& operator +=( const TimeSpan& rhs );
+
+		TimeSpan operator -( const TimeSpan& rhs ) const;
+		TimeSpan& operator -=( const TimeSpan& rhs );
+
 	private:
 		LONGLONG m_Span;
 	};
+
+	
+
 }
 
 #include "BPPTimeSpan.inl"
