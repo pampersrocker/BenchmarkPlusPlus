@@ -19,14 +19,19 @@ namespace bpp
 		TimeSpan operator +( const TimeSpan& rhs ) const;
 		TimeSpan& operator +=( const TimeSpan& rhs );
 
+		bool operator <( const TimeSpan& rhs ) const;
+		bool operator >( const TimeSpan& rhs ) const;
+		bool operator <=( const TimeSpan& rhs ) const;
+		bool operator >=( const TimeSpan& rhs ) const;
+		bool operator ==( const TimeSpan& rhs ) const;
+		bool operator !=( const TimeSpan& rhs ) const;
+
 		TimeSpan operator -( const TimeSpan& rhs ) const;
 		TimeSpan& operator -=( const TimeSpan& rhs );
 
 	private:
 		LONGLONG m_Span;
 	};
-
-	
 
 }
 

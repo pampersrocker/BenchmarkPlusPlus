@@ -48,6 +48,37 @@ namespace bpp
 	}
 
 
+	inline bool TimeSpan::operator<( const TimeSpan& rhs ) const
+	{
+		return m_Span < rhs.m_Span;
+	}
+
+	inline bool TimeSpan::operator>( const TimeSpan& rhs ) const
+	{
+		return m_Span > rhs.m_Span;
+	}
+
+	inline bool TimeSpan::operator<=( const TimeSpan& rhs ) const
+	{
+		return m_Span <= rhs.m_Span;
+	}
+
+	inline bool TimeSpan::operator>=( const TimeSpan& rhs ) const
+	{
+		return m_Span >= rhs.m_Span;
+	}
+
+	inline bool TimeSpan::operator==( const TimeSpan& rhs ) const
+	{
+		return m_Span == rhs.m_Span;
+	}
+
+	inline bool TimeSpan::operator!=( const TimeSpan& rhs ) const
+	{
+		return m_Span != rhs.m_Span;
+	}
+
+
 	inline TimeSpan::~TimeSpan()
 	{
 
