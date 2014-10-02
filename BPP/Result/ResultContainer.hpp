@@ -20,6 +20,10 @@ namespace bpp
 
 		Result AverageResult( void ) const;
 
+		Result ShortestResult( void ) const;
+
+		Result LongestResult( void ) const;
+
 	private:
 
 		BenchmarkarbleItem* m_Item;

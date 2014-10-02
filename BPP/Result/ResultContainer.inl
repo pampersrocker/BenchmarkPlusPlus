@@ -40,10 +40,56 @@ namespace bpp
 			count++;
 		}
 
+		if( count == 0 )
+		{
+			count = 1;
+		}
+
 		return Result( TimeSpan( ticks / count ), m_Item, m_Scope);
 	}
 
 
+	inline bpp::Result ResultContainer::ShortestResult( void ) const
+	{
+		if( m_Results.size() > 0 )
+		{
+			Result shortest = m_Results[ 0 ];
+			for( auto& result : m_Results )
+			{
+				if( result.Span() < shortest.Span() )
+				{
+					shortest = result;
+				}
+			}
+
+			return shortest;
+		}
+		else
+		{
+			return Result( TimeSpan(), m_Item, m_Scope );
+		}
+	}
+
+	inline bpp::Result ResultContainer::LongestResult( void ) const
+	{
+		if( m_Results.size() > 0 )
+		{
+			Result longest = m_Results[ 0 ];
+			for( auto& result : m_Results )
+			{
+				if( result.Span() > longest.Span() )
+				{
+					longest = result;
+				}
+			}
+
+			return longest;
+		}
+		else
+		{
+			return Result( TimeSpan(), m_Item, m_Scope );
+		}
+	}
 
 	inline const std::vector<Result>& ResultContainer::Results( void ) const
 	{
