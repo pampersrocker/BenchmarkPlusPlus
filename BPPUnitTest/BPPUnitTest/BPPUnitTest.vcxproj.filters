@@ -69,14 +69,14 @@
     <ClInclude Include="..\..\BPP\Result\BPPResultScope.hpp">
       <Filter>Header Files\bpp\Result</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\BPP\Logging\BPPILogger.hpp">
-      <Filter>Header Files\bpp\Logging</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\BPP\Logging\BPPDefaultConsoleLogger.hpp">
       <Filter>Header Files\bpp\Logging</Filter>
     </ClInclude>
     <ClInclude Include="..\..\BPP\Result\ResultContainer.hpp">
       <Filter>Header Files\bpp\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\BPP\Logging\BPPILogger.hpp">
+      <Filter>Header Files\bpp\Logging</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
