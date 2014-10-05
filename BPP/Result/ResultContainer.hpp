@@ -22,9 +22,26 @@ namespace bpp
 		\return std::vector<Result> The list of filtered results.
 		*/
 		std::vector<Result> Results( void ) const;
+		
+		/**
+		\brief Returns the unfiltered results of the container. 
+		
+		Is going to be the same as the Results Method if no filter is set or no Elements are filtered, 
+		but will be faster in those cases, since no vector is being copied.
+		
+		\return const std::vector<Result>& All results in this container.
+		*/
+		const std::vector<Result>& UnfilteredResults( void ) const;
+		
 		BenchmarkScope* Scope() const;
 		BenchmarkarbleItem* Item() const;
 
+		/**
+		\brief Returns the filtered average result of the container.
+		
+		If there are no results, or all results are filtered, a Result with a TimeSpan of 0 Ticks will be returned
+		\return bpp::Result The average result, or a Result with 0 Ticks TimeSpan, if no results are available.
+		*/
 		Result AverageResult( void ) const;
 
 		Result ShortestResult( void ) const;

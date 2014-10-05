@@ -81,7 +81,7 @@ namespace bpp
 			{
 				if( m_Filter == nullptr || !m_Filter->FilterResult( result ) )
 				{
-					if( result.Span() < shortest.Span() )
+					if( result.Span() < shortest.Span() || shortest.Span().Ticks() == 0 )
 					{
 						shortest = result;
 					}
@@ -137,6 +137,14 @@ namespace bpp
 		}
 		return results;
 	}
+
+
+	inline const std::vector<Result>& ResultContainer::UnfilteredResults( void ) const
+	{
+		return m_Results;
+	}
+
+
 
 	inline BenchmarkScope* ResultContainer::Scope() const
 	{
