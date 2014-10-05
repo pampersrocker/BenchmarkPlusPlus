@@ -37,6 +37,10 @@ namespace bpp
 	inline void ResultContainer::Filter( IResultFilter* filter )
 	{
 		m_Filter = filter;
+		if (m_Filter)
+		{
+			m_Filter->PrepareFilter( m_Results );
+		}
 	}
 
 
@@ -121,9 +125,17 @@ namespace bpp
 		}
 	}
 
-	inline const std::vector<Result>& ResultContainer::Results( void ) const
+	inline std::vector<Result> ResultContainer::Results( void ) const
 	{
-		return m_Results;
+		std::vector<Result> results;
+		for( auto& result : m_Results )
+		{
+			if( m_Filter == nullptr || !m_Filter->FilterResult( result ) )
+			{
+				results.push_back( result );
+			}
+		}
+		return results;
 	}
 
 	inline BenchmarkScope* ResultContainer::Scope() const
