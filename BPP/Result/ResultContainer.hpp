@@ -44,10 +44,26 @@ namespace bpp
 		*/
 		Result AverageResult( void ) const;
 
+		/**
+		\brief Returns the shortest result, of all filtered results, or a Result with 0 Ticks if no Result applies.
+		
+		\return bpp::Result The shortest result, or a Result with 0 Ticks TimeSpan, if no results are available.
+		*/
 		Result ShortestResult( void ) const;
 
+		/**
+		\brief Returns the longest result, of all filtered results, or a Result with 0 Ticks if no Result applies.
+
+		\return bpp::Result The longest result, or a Result with 0 Ticks TimeSpan, if no results are available.
+		*/
 		Result LongestResult( void ) const;
 
+		/**
+		\brief Gets the current filter.
+		If no filter is set, nullptr will be returned.
+		
+		\return IResultFilter*
+		*/
 		IResultFilter* Filter( void ) const;
 		/**
 		\brief Sets the filter for the container and prepares it.

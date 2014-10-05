@@ -103,7 +103,6 @@ namespace bpp
 			Result longest = Result( TimeSpan(), m_Item, m_Scope );
 			if( m_Filter == nullptr || !m_Filter->FilterResult( m_Results[0]) )
 			{
-
 				longest = m_Results[ 0 ];
 			}
 			for( auto& result : m_Results )
