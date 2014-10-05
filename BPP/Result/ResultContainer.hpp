@@ -1,7 +1,6 @@
 #pragma once
 #ifndef ResultContainer_h__
 #define ResultContainer_h__
-#include <array>
 namespace bpp
 {
 	class ResultContainer
