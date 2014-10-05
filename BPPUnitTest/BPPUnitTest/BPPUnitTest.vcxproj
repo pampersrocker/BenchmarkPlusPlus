@@ -94,6 +94,7 @@
     <ClInclude Include="..\..\BPP\Factory\BPPScope.hpp" />
     <ClInclude Include="..\..\BPP\Logging\BPPDefaultConsoleLogger.hpp" />
     <ClInclude Include="..\..\BPP\Logging\BPPILogger.hpp" />
+    <ClInclude Include="..\..\BPP\Result\BPPIResultFilter.hpp" />
     <ClInclude Include="..\..\BPP\Result\BPPResult.hpp" />
     <ClInclude Include="..\..\BPP\Result\BPPResultScope.hpp" />
     <ClInclude Include="..\..\BPP\Result\ResultContainer.hpp" />

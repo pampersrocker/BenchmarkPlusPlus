@@ -9,7 +9,7 @@ namespace bpp
 	{
 	public:
 
-		inline virtual void PrepareFilter( const ResultContainer& container ) {};
+		inline virtual void PrepareFilter( const ResultContainer& /* container */ ) {};
 
 		virtual bool FilterResult( const Result& result ) = 0;
 

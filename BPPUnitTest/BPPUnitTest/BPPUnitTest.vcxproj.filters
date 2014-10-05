@@ -78,6 +78,9 @@
     <ClInclude Include="..\..\BPP\Logging\BPPILogger.hpp">
       <Filter>Header Files\bpp\Logging</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\BPP\Result\BPPIResultFilter.hpp">
+      <Filter>Header Files\bpp\Result</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

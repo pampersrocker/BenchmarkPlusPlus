@@ -3,6 +3,8 @@
 #define ResultContainer_h__
 namespace bpp
 {
+	class IResultFilter;
+
 	class ResultContainer
 	{
 	public:
@@ -23,11 +25,17 @@ namespace bpp
 
 		Result LongestResult( void ) const;
 
+		IResultFilter* Filter( void ) const;
+		void Filter( IResultFilter* filter );
+
 	private:
+
+		IResultFilter* m_Filter;
 
 		BenchmarkarbleItem* m_Item;
 		BenchmarkScope* m_Scope;
 		std::vector<Result> m_Results;
+
 	};
 }
 

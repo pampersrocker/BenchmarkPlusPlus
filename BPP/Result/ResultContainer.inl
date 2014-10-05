@@ -1,14 +1,15 @@
 #pragma once
 #ifndef ResultContainer_inl__
 #define ResultContainer_inl__
-
+#include "BPPIResultFilter.hpp"
 namespace bpp
 {
 
 	inline ResultContainer::ResultContainer(BenchmarkarbleItem* item, BenchmarkScope* scope,  int reserveSize ) :
 		m_Results(),
 		m_Item( item ),
-		m_Scope( scope )
+		m_Scope( scope ),
+		m_Filter( nullptr )
 	{
 		m_Results.reserve( reserveSize );
 	}
@@ -28,6 +29,17 @@ namespace bpp
 		m_Results.push_back( result );
 	}
 
+	inline IResultFilter* ResultContainer::Filter( void ) const
+	{
+		return m_Filter;
+	}
+
+	inline void ResultContainer::Filter( IResultFilter* filter )
+	{
+		m_Filter = filter;
+	}
+
+
 
 	inline bpp::Result ResultContainer::AverageResult( void ) const
 	{
@@ -36,8 +48,11 @@ namespace bpp
 
 		for( auto& result : m_Results )
 		{
-			ticks += result.Span().Ticks();
-			count++;
+			if( m_Filter == nullptr || m_Filter->FilterResult( result ) )
+			{
+				ticks += result.Span().Ticks();
+				count++;
+			}
 		}
 
 		if( count == 0 )
@@ -53,12 +68,19 @@ namespace bpp
 	{
 		if( m_Results.size() > 0 )
 		{
-			Result shortest = m_Results[ 0 ];
+			Result shortest = Result( TimeSpan(), m_Item, m_Scope );
+			if( m_Filter == nullptr || !m_Filter->FilterResult( m_Results[ 0 ] ) )
+			{
+				shortest = m_Results[ 0 ];
+			}
 			for( auto& result : m_Results )
 			{
-				if( result.Span() < shortest.Span() )
+				if( m_Filter == nullptr || !m_Filter->FilterResult( result ) )
 				{
-					shortest = result;
+					if( result.Span() < shortest.Span() )
+					{
+						shortest = result;
+					}
 				}
 			}
 
@@ -74,12 +96,20 @@ namespace bpp
 	{
 		if( m_Results.size() > 0 )
 		{
-			Result longest = m_Results[ 0 ];
+			Result longest = Result( TimeSpan(), m_Item, m_Scope );
+			if( m_Filter == nullptr || !m_Filter->FilterResult( m_Results[0]) )
+			{
+
+				longest = m_Results[ 0 ];
+			}
 			for( auto& result : m_Results )
 			{
-				if( result.Span() > longest.Span() )
+				if( m_Filter == nullptr || !m_Filter->FilterResult( result ) )
 				{
-					longest = result;
+					if( result.Span() > longest.Span() )
+					{
+						longest = result;
+					}
 				}
 			}
 
