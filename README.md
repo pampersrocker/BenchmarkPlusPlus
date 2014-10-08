@@ -102,7 +102,7 @@ The actual Benchmarker needs to be called in some sort of main function:
 
 ```cpp
 #include "bpp.hpp"
-#include "Logging/BPPDefaultConsoleLogger.hpp"
+#include "Logging/BPPDefaultConsoleLogger.hpp" //Include the default logger
 
 using namespace bpp;
 
@@ -113,15 +113,85 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	DefaultConsoleLogger logger; // Create some logger for the Benchmarker, to actually get some output
 
-	instance.AddLogger( &logger );
+	instance.AddLogger( &logger ); // Add the logger to the benchmarker
 
-	instance.Run();
+	instance.Run(); // Run the tests
 
-	instance.Log();
+	instance.Log(); // Log the results
 
-	instance.Release();
-
+	instance.Release(); // Release any heap data allocated by the benchmarker
 
 	return 0;
 }
+```
+
+Implementing a custom Logger
+===========================
+
+If the default loggers are not up to the task as you desire them, you can easily create a custom Logger if you want to:
+
+```cpp
+#include "bpp.hpp"
+
+class MyLogger : public bpp::ILogger
+{
+public:
+
+	virtual void Initialize(void) override; //Optional, if initialization is needed
+
+	virtual void Log( const std::vector< bpp::ResultScope* >& scopes ) override;
+
+	virtual void Release(void) override; //Optional, if release is needed
+
+private:
+
+};
+```
+
+The argument on the Log call contains all results of all Scopes.
+You usually want to iterate over all Scopes and iterate over all different ResultContainer in the scopes, which contain
+all iteration of a benchmark.
+So to log every benchmark that has been done, you would create a loop like the following:
+```cpp
+void MyLogger::Log( const std::vector< ResultScope* >& scopes )
+{
+	for( ResultScope* scope : scopes )
+	{
+		// TODO: Output the scope here
+		for( const ResultContainer& resultContainer : scope->Results() )
+		{
+			// TODO: Output the Benchmark name here
+			for( const Result& result : resultContainer.Results() )
+			{
+				// TODO: Output each individual result here
+			}
+		}
+	}
+}
+```
+
+There are some helper methods in the ResultContainer: ```ResultContainer::AverageResult()```,
+```ResultContainer::ShortestResult``` and ```ResultContainer::LongestResult```
+
+Filtering the output
+=======================
+It is possible to filter the output by setting a filter on a ResultContainer.
+The filter is then asked on every log result if it should be considered in the output or not.
+Filters can be applied by using the ```ResultContainer::Filter(myFilterPtr)``` Method.
+
+## Custom Filters
+
+To create a custom filter you need to implement the ```bpp::IResultFilter``` interface:
+
+```cpp
+class MyFilter : public bpp::IResultFilter
+{
+public:
+	//Optional, can be used to prepare filtering which is relative to the results
+	virtual void PrepareFilter( const std::vector<Result>& /* container */ ) override;
+
+	// Return true, if the result should be filtered out and not be considered while logging, false otherwise
+	virtual bool FilterResult( const Result& result ) override;
+
+};
 ```
