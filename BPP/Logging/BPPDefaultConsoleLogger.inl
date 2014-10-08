@@ -13,7 +13,7 @@ namespace bpp
 		for( ResultScope* scope : scopes )
 		{
 			cout << scope->ScopeName() << ":" << std::endl;
-			for( ResultContainer result : scope->Results() )
+			for( auto& result : scope->Results() )
 			{
 				cout << "\t" << result.Item()->Name() << "\t" << result.AverageResult().Span().Seconds() << std::endl;
 			}
