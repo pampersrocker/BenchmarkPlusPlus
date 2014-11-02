@@ -29,7 +29,7 @@ namespace bpp
 		};
 
 		HANDLE hstdout;
-		std::vector<int> m_Colors;
+		std::vector<WORD> m_Colors;
 		bool m_UseColor;
 	};
 }

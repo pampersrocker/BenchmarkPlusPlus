@@ -8,14 +8,18 @@
 #define BPP_CONCAT2( x, y ) x ## y
 #define BPP_CONCAT( x, y ) BPP_CONCAT2( x, y )
 
-#define BPP_BEGIN_BENCHMARK( scope, benchmarkName )															\
+#define BPP_BEGIN_BENCHMARK( scope, benchmarkName )\
+	namespace BPP_NM_##scope##benchmarkName {																								\
+	class BPP_##scope##benchmarkName;																		\
+	typedef BPP_##scope##benchmarkName BPP_BenchmarkClass;													\
+	const char* BPP_BenchmarkClassName = BPP_TO_STRING(benchmarkName);										\
 	class BPP_##scope##benchmarkName : public ::bpp::BenchmarkarbleItem										\
-	{																										\
+		{																									\
 		public:																								\
 			inline BPP_##scope##benchmarkName( const std::string name) : ::bpp::BenchmarkarbleItem( name )	\
-			{																								\
-				::bpp::Benchmarker::Instance().Scope( BPP_TO_STRING(scope) )->AddItemToScope( this );						\
-			}																								\
+						{																					\
+				::bpp::Benchmarker::Instance().Scope( BPP_TO_STRING(scope) )->AddItemToScope( this );		\
+						}																					\
 
 #define BPP_INITIALIZE_BENCHMARK	\
 	inline virtual void Initialize() override
@@ -26,9 +30,10 @@
 #define BPP_RELEASE_BENCHMARK		\
 	inline virtual void Release() override
 
-#define BPP_END_BENCHMARK(scope, benchmarkName )								\
-	};																			\
-	BPP_##scope##benchmarkName BPP_CONCAT(global_##BPP_##scope##_##benchmarkName##_, __LINE__)  ( BPP_TO_STRING(benchmarkName) );
+#define BPP_END_BENCHMARK																		\
+		};																						\
+	BPP_BenchmarkClass BPP_CONCAT(BPP_BenchmarkClass , __LINE__)  ( BPP_BenchmarkClassName );	\
+	}
 
 
 #endif // BPPMacros_h__

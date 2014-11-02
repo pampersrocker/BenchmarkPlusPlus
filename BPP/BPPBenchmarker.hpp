@@ -109,7 +109,7 @@ namespace bpp
 	private:
 
 		unsigned int m_Iterations;
-		Benchmarker( const Benchmarker& rhs ) {};
+		Benchmarker( const Benchmarker& ) {};
 		Benchmarker( void );
 
 		std::vector< ILogger* > m_Logger;

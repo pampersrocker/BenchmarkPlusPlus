@@ -25,7 +25,7 @@ BPP_BEGIN_BENCHMARK( MyScope, MyBenchmark )
 		// Your benchmarked code here
 	}
 
-BPP_END_BENCHMARK( MyScope, MyBenchmark )
+BPP_END_BENCHMARK
 ```
 
 All benchmarks in one scope are grouped together, which enables comparison between different
@@ -42,7 +42,7 @@ BPP_BEGIN_BENCHMARK( MyScope, MyOldCode )
 		// Your old code
 	}
 
-BPP_END_BENCHMARK( MyScope, MyOldCode )
+BPP_END_BENCHMARK
 
 BPP_BEGIN_BENCHMARK( MyScope, MyNewCode )
 
@@ -51,7 +51,7 @@ BPP_BEGIN_BENCHMARK( MyScope, MyNewCode )
 		// Your new code
 	}
 
-BPP_END_BENCHMARK( MyScope, MyNewCode )
+BPP_END_BENCHMARK
 ```
 
 Here the old code gets compared to the new code. The Scope and Name declaration together
@@ -89,7 +89,7 @@ BPP_BEGIN_BENCHMARK( MyScope, MyBenchmark )
 		myImportantBenchmarkValue = 0;
 	}
 
-BPP_END_BENCHMARK( MyScope, MyBenchmark )
+BPP_END_BENCHMARK
 ```
 
 These variables are defined in a class scope and are only available in those three methods.
