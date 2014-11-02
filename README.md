@@ -61,7 +61,7 @@ Initialization, Variables & Release
 ====================
 
 You usually want to test your code on some data which should be already initialized before the actual benchmarking.
-To achieve this you can define variables inside the ```BPP_BEGIN_BENCHMARK(...)``` and ```BPP_END_BENCHMARK(...)```
+To achieve this you can define variables inside the ```BPP_BEGIN_BENCHMARK(...)``` and ```BPP_END_BENCHMARK```
 and declare a Initialize and Release Method:
 
 ```cpp
