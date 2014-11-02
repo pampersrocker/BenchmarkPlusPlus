@@ -26,6 +26,7 @@ void Initialize()
 }
 
 
+
 BPP_BEGIN_BENCHMARK( TestScope1, Sort )
 
 std::vector<int> sorted;
@@ -44,7 +45,7 @@ BPP_BENCHMARK
 }
 
 
-BPP_END_BENCHMARK( TestScope1, Sort )
+BPP_END_BENCHMARK
 
 BPP_BEGIN_BENCHMARK( TestScope1, StableSort )
 
@@ -64,4 +65,4 @@ BPP_BENCHMARK
 }
 
 
-BPP_END_BENCHMARK( TestScope1, StableSort )
+BPP_END_BENCHMARK

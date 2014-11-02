@@ -8,4 +8,4 @@ BPP_BEGIN_BENCHMARK( TestScope, TestBenchmark )
 
 	}
 	
-BPP_END_BENCHMARK( TestScope, TestBenchmark )
+BPP_END_BENCHMARK
