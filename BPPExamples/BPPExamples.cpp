@@ -19,6 +19,12 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	instance.Run();
 
+	logger.UseColor(true);
+
+	instance.Log();
+
+	logger.UseColor(false);
+
 	instance.Log();
 
 	instance.Release();

@@ -10,10 +10,27 @@ namespace bpp
 	{
 	public:
 
+		DefaultConsoleLogger();
+
 		virtual void Log( const std::vector< ResultScope* >& scopes ) override;
+
+		inline bool UseColor() const { return m_UseColor; }
+		inline void UseColor(bool val) { m_UseColor = val; }
+
 
 	private:
 
+		enum LogColors
+		{
+			Normal,
+			Fastest,
+			Slowest,
+			NUM
+		};
+
+		HANDLE hstdout;
+		std::vector<int> m_Colors;
+		bool m_UseColor;
 	};
 }
 
