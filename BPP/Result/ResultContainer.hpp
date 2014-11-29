@@ -11,7 +11,7 @@ namespace bpp
 		ResultContainer(BenchmarkarbleItem* item, BenchmarkScope* scope, int reserveSize);
 		~ResultContainer();
 
-		int Count( void ) const;
+		size_t Count( void ) const;
 
 		void AddResult( const Result& result );
 
