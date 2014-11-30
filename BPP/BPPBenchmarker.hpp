@@ -9,6 +9,7 @@ namespace bpp
 	template < class T >
 	class FactoryContainer;
 
+
 	/**
 	\brief The main class for benchmarking. Contains all scopes used for benchmarking, runs the benchmarks itself
 	and uses writers to print the output.
@@ -104,9 +105,18 @@ namespace bpp
 		*/
 		unsigned int Iterations( void ) const;
 
+		/**
+		\brief Adds a new scenario, which will be benchmarked on all of the benchmarks and scopes.
+		The ownership for the benchmark remains at the caller.
+		
+		*/
+		void AddScenario( BenchmarkScenario* scenario );
+
 
 	protected:
 	private:
+
+		std::vector< BenchmarkScenario* > m_Scenarios;
 
 		unsigned int m_Iterations;
 		Benchmarker( const Benchmarker& ) {};
@@ -114,15 +124,13 @@ namespace bpp
 
 		std::vector< ILogger* > m_Logger;
 
-		std::vector<ResultScope*> m_Results;
+		std::vector<ResultScenario*> m_Results;
 
 		BenchmarkScope* m_CurrentScope;
 
 		static Benchmarker*& InternalInstance( bool createIfNotInstanced = true );
 
 	};
-
-
 
 }
 

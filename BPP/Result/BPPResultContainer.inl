@@ -19,7 +19,7 @@ namespace bpp
 		m_Results.clear();
 	}
 
-	inline int ResultContainer::Count( void ) const
+	inline size_t ResultContainer::Count( void ) const
 	{
 		return m_Results.size();
 	}

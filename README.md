@@ -139,7 +139,7 @@ public:
 
 	virtual void Initialize(void) override; //Optional, if initialization is needed
 
-	virtual void Log( const std::vector< bpp::ResultScope* >& scopes ) override;
+	virtual void Log( const std::vector< bpp::ResultScenario* >& scenarios ) override;
 
 	virtual void Release(void) override; //Optional, if release is needed
 
@@ -153,17 +153,21 @@ You usually want to iterate over all Scopes and iterate over all different Resul
 all iteration of a benchmark.
 So to log every benchmark that has been done, you would create a loop like the following:
 ```cpp
-void MyLogger::Log( const std::vector< ResultScope* >& scopes )
+void MyLogger::Log( const std::vector< ResultScenario* >& scenarios )
 {
-	for( ResultScope* scope : scopes )
+	for( ResultScenario* scenario : scenarios )
 	{
-		// TODO: Output the scope here
-		for( const ResultContainer& resultContainer : scope->Results() )
+		// TODO: Output scenario here, if any
+		for( ResultScope* scope : scenario->ResultScopes() )
 		{
-			// TODO: Output the Benchmark name here
-			for( const Result& result : resultContainer.Results() )
+			// TODO: Output the scope here
+			for( const ResultContainer& resultContainer : scope->Results() )
 			{
-				// TODO: Output each individual result here
+				// TODO: Output the Benchmark name here
+				for( const Result& result : resultContainer.Results() )
+				{
+					// TODO: Output each individual result here
+				}
 			}
 		}
 	}
@@ -172,6 +176,55 @@ void MyLogger::Log( const std::vector< ResultScope* >& scopes )
 
 There are some helper methods in the ResultContainer: ```ResultContainer::AverageResult()```,
 ```ResultContainer::ShortestResult``` and ```ResultContainer::LongestResult```
+
+Adding Scenarios to the benchmark
+=======================
+
+Scenarios are used to benchmark the same code on different settings,
+providing a better comparison on a range of input data.
+
+## Defining Scenarios
+
+A Scenario needs a ```std::string ToString() const``` Method in order to be used in the Benchmarking process.
+
+A Dummy implementation would look like this:
+
+```cpp
+class DummyScenario
+{
+	public:
+	inline DummyScenario( const std::string& name ) : m_Name( name )
+	{
+	}
+
+	inline std::string ToString() const
+	{
+		return m_Name;
+	}
+
+
+	private:
+
+	std::string m_Name;
+
+};
+```
+
+In order to be used by the benchmarking system this class must be declared BEFORE the inclusion of ```bpp.hpp```
+and put in a define for the system:
+```cpp
+
+// Class definition
+
+#define BPP_CUSTOM_SCENARIO ::DummyScenario
+#include "bpp.hpp"
+```
+
+## Using Scenarios
+
+A pointer to the current Scenario is available under the name `curScenario` inside the `BPP_BEGIN_BENCHMARK` and `BPP_END_BENCHMARK`
+
+This pointer might be a `nullptr` if no benchmark is defined.
 
 Filtering the output
 =======================

@@ -4,7 +4,7 @@
 #include <vector>
 namespace bpp
 {
-	class ResultScope;
+	class ResultScenario;
 
 	class ILogger
 	{
@@ -24,7 +24,7 @@ namespace bpp
 		All information that is available can be found in the scopes list
 		
 		*/
-		virtual void Log( const std::vector< ResultScope* >& scopes ) = 0;
+		virtual void Log( const std::vector< ResultScenario* >& scopes ) = 0;
 
 		/**
 		\brief Gets called after the logging process. 

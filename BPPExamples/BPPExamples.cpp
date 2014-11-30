@@ -3,10 +3,11 @@
 
 #include "stdafx.h"
 
-#include "bpp.hpp"
 #include "Logging/BPPDefaultConsoleLogger.hpp"
 
 using namespace bpp;
+
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -14,6 +15,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	Benchmarker& instance = Benchmarker::Instance();
 
 	DefaultConsoleLogger logger;
+
+	DummyScenario scenario1( "Scenario1" );
+	DummyScenario scenario2( "Scenario2" );
+
+	instance.AddScenario( &scenario1 );
+	instance.AddScenario( &scenario2 );
 
 	instance.AddLogger( &logger );
 

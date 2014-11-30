@@ -72,14 +72,20 @@
     <ClInclude Include="..\..\BPP\Logging\BPPDefaultConsoleLogger.hpp">
       <Filter>Header Files\bpp\Logging</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\BPP\Result\ResultContainer.hpp">
-      <Filter>Header Files\bpp\Result</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\BPP\Logging\BPPILogger.hpp">
       <Filter>Header Files\bpp\Logging</Filter>
     </ClInclude>
     <ClInclude Include="..\..\BPP\Result\BPPIResultFilter.hpp">
       <Filter>Header Files\bpp\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\BPP\Result\BPPResultContainer.hpp">
+      <Filter>Header Files\bpp\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\BPP\Result\BPPResultScenario.hpp">
+      <Filter>Header Files\bpp\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\BPP\Factory\BPPDummyScenario.hpp">
+      <Filter>Header Files\bpp\Factory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -118,7 +124,10 @@
     <None Include="..\..\BPP\Logging\BPPDefaultConsoleLogger.inl">
       <Filter>Header Files\bpp\Logging</Filter>
     </None>
-    <None Include="..\..\BPP\Result\ResultContainer.inl">
+    <None Include="..\..\BPP\Result\BPPResultContainer.inl">
+      <Filter>Header Files\bpp\Result</Filter>
+    </None>
+    <None Include="..\..\BPP\Result\BPPResultScenario.inl">
       <Filter>Header Files\bpp\Result</Filter>
     </None>
   </ItemGroup>
