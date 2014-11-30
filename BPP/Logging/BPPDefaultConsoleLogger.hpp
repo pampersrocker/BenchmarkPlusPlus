@@ -4,7 +4,7 @@
 #include "BPPILogger.hpp"
 namespace bpp
 {
-	class ResultScope;
+	class ResultScenario;
 
 	class DefaultConsoleLogger : public ILogger
 	{
@@ -12,7 +12,7 @@ namespace bpp
 
 		DefaultConsoleLogger();
 
-		virtual void Log( const std::vector< ResultScope* >& scopes ) override;
+		virtual void Log( const std::vector< ResultScenario* >& scopes ) override;
 
 		inline bool UseColor() const { return m_UseColor; }
 		inline void UseColor(bool val) { m_UseColor = val; }

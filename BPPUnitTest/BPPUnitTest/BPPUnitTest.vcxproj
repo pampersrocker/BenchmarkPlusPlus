@@ -158,6 +158,7 @@
     <ClInclude Include="..\..\BPP\BPPMacros.hpp" />
     <ClInclude Include="..\..\BPP\Chrono\BPPTimePoint.hpp" />
     <ClInclude Include="..\..\BPP\Chrono\BPPTimeSpan.hpp" />
+    <ClInclude Include="..\..\BPP\Factory\BPPBaseScenario.hpp" />
     <ClInclude Include="..\..\BPP\Factory\BPPBenchmarkableItem.hpp" />
     <ClInclude Include="..\..\BPP\Factory\BPPFactoryContainer.hpp" />
     <ClInclude Include="..\..\BPP\Factory\BPPFactoryItem.hpp" />
@@ -167,7 +168,8 @@
     <ClInclude Include="..\..\BPP\Result\BPPIResultFilter.hpp" />
     <ClInclude Include="..\..\BPP\Result\BPPResult.hpp" />
     <ClInclude Include="..\..\BPP\Result\BPPResultScope.hpp" />
-    <ClInclude Include="..\..\BPP\Result\ResultContainer.hpp" />
+    <ClInclude Include="..\..\BPP\Result\BPPResultContainer.hpp" />
+    <ClInclude Include="..\..\BPP\Result\BPPResultScenario.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -193,7 +195,8 @@
     <None Include="..\..\BPP\Logging\BPPDefaultConsoleLogger.inl" />
     <None Include="..\..\BPP\Result\BPPResult.inl" />
     <None Include="..\..\BPP\Result\BPPResultScope.inl" />
-    <None Include="..\..\BPP\Result\ResultContainer.inl" />
+    <None Include="..\..\BPP\Result\BPPResultContainer.inl" />
+    <None Include="..\..\BPP\Result\BPPResultScenario.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

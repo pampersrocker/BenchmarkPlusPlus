@@ -4,6 +4,7 @@
 #include <random>
 #include <functional>
 #include <algorithm>
+#include <iostream>
 
 
 static std::vector<int> g_Numbers;

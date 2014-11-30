@@ -85,5 +85,5 @@ namespace bpp
 	};
 }
 
-#include "ResultContainer.inl"
+#include "BPPResultContainer.inl"
 #endif // ResultContainer_h__

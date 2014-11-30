@@ -61,25 +61,36 @@ namespace bpp
 
 	inline void Benchmarker::Run( void )
 	{
-		for( BenchmarkScope* scope : ScopeContainer::Instance().FactoryItems() )
+		std::vector< BenchmarkScenario*> tmpScenarios = m_Scenarios;
+		if( tmpScenarios.size() == 0 )
 		{
-			ResultScope* resultScope = new ResultScope( scope->Name() );
-			for( IFactoryItem* item : scope->Items() )
+			tmpScenarios.push_back(nullptr);
+		}
+		for( auto scenario : tmpScenarios )
+		{
+			ResultScenario* resultScenario = new ResultScenario( scenario );
+			for( BenchmarkScope* scope : ScopeContainer::Instance().FactoryItems() )
 			{
-				ResultContainer resultContainer( static_cast< BenchmarkarbleItem* >( item ), scope, m_Iterations );
-				for( size_t i = 0; i < m_Iterations; i++ )
+				ResultScope* resultScope = new ResultScope( scope->Name() );
+				for( IFactoryItem* item : scope->Items() )
 				{
-					item->Initialize();
-					TimePoint startPoint = TimePoint::Now();
-					item->Run();
-					TimePoint endPoint = TimePoint::Now();
-					item->Release();
-					Result result( ( endPoint - startPoint ), static_cast< BenchmarkarbleItem* >( item ), scope );
-					resultContainer.AddResult( result );
+					ResultContainer resultContainer( static_cast< BenchmarkarbleItem* >( item ), scope, m_Iterations );
+					for( size_t i = 0; i < m_Iterations; i++ )
+					{
+						item->SetScenario( scenario );
+						item->Initialize();
+						TimePoint startPoint = TimePoint::Now();
+						item->Run();
+						TimePoint endPoint = TimePoint::Now();
+						item->Release();
+						Result result( ( endPoint - startPoint ), static_cast< BenchmarkarbleItem* >( item ), scope );
+						resultContainer.AddResult( result );
+					}
+					resultScope->AddResult( resultContainer );
 				}
-				resultScope->AddResult( resultContainer );
+				resultScenario->AddResult( resultScope );
 			}
-			m_Results.push_back( resultScope );
+			m_Results.push_back( resultScenario );
 		}
 	}
 
@@ -132,6 +143,13 @@ namespace bpp
 		}
 		return instance;
 	}
+
+	inline
+	void Benchmarker::AddScenario( BenchmarkScenario* scenario )
+	{
+		m_Scenarios.push_back( scenario );
+	}
+
 }
 
 #endif // BPPBenchmarker_inl__
