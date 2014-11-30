@@ -158,7 +158,7 @@
     <ClInclude Include="..\..\BPP\BPPMacros.hpp" />
     <ClInclude Include="..\..\BPP\Chrono\BPPTimePoint.hpp" />
     <ClInclude Include="..\..\BPP\Chrono\BPPTimeSpan.hpp" />
-    <ClInclude Include="..\..\BPP\Factory\BPPBaseScenario.hpp" />
+    <ClInclude Include="..\..\BPP\Factory\BPPDummyScenario.hpp" />
     <ClInclude Include="..\..\BPP\Factory\BPPBenchmarkableItem.hpp" />
     <ClInclude Include="..\..\BPP\Factory\BPPFactoryContainer.hpp" />
     <ClInclude Include="..\..\BPP\Factory\BPPFactoryItem.hpp" />

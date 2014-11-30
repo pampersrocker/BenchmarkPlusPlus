@@ -10,15 +10,16 @@
 #include <stdio.h>
 #include <tchar.h>
 
-#include "Factory/BPPBaseScenario.hpp"
-class DummyScenario : public bpp::BenchmarkBaseScenario
+#include <string>
+
+class DummyScenario
 {
 public:
-	DummyScenario( const std::string& name ) : m_Name( name )
+	inline DummyScenario( const std::string& name ) : m_Name( name )
 	{
 	}
 
-	virtual std::string ToString() const override
+	inline std::string ToString() const
 	{
 		return m_Name;
 	}

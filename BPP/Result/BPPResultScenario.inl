@@ -6,7 +6,7 @@ namespace bpp
 {
 
 	inline
-	ResultScenario::ResultScenario( BenchmarkScenario* scenario ) :
+	ResultScenario::ResultScenario(const BenchmarkScenario* scenario ) :
 		m_Scenario( scenario ),
 		m_Scopes()
 	{

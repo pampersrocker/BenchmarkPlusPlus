@@ -22,7 +22,7 @@ namespace bpp
 		
 		\param scenario The scenario which was benchmarked in the ResultScopes, may be nullptr if now Scenario was used.
 		*/
-		ResultScenario( BenchmarkScenario* scenario );
+		ResultScenario( const BenchmarkScenario* scenario );
 		~ResultScenario();
 
 		/**
@@ -50,7 +50,7 @@ namespace bpp
 
 		std::vector<ResultScope*> m_Scopes;
 
-		BenchmarkScenario* m_Scenario;
+		const BenchmarkScenario* m_Scenario;
 
 
 	};

@@ -6,11 +6,10 @@
 namespace bpp
 {
 	/**
-	\brief The base class for any Scenario used on the benchmarking process.
-	Features a ToString method for identification, which has to be overridden.
+	\brief The dummy class for any Scenario used on the benchmarking process.
 	
 	*/
-	class BenchmarkBaseScenario
+	class BenchmarkDummyScenario
 	{
 	public:
 
@@ -18,7 +17,10 @@ namespace bpp
 		\brief Used for Identification of this Scenario
 		
 		*/
-		virtual std::string ToString() const = 0;
+		inline std::string ToString() const
+		{
+			return std::string();
+		}
 
 	private:
 

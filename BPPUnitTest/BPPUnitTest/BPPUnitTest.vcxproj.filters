@@ -84,7 +84,7 @@
     <ClInclude Include="..\..\BPP\Result\BPPResultScenario.hpp">
       <Filter>Header Files\bpp\Result</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\BPP\Factory\BPPBaseScenario.hpp">
+    <ClInclude Include="..\..\BPP\Factory\BPPDummyScenario.hpp">
       <Filter>Header Files\bpp\Factory</Filter>
     </ClInclude>
   </ItemGroup>
