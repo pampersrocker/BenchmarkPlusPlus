@@ -3,27 +3,11 @@
 
 #include "stdafx.h"
 
-#include "bpp.hpp"
 #include "Logging/BPPDefaultConsoleLogger.hpp"
 
 using namespace bpp;
 
-class DummyScenario : public BenchmarkBaseScenario
-{
-public:
-	DummyScenario(const std::string& name) : m_Name(name) { }
 
-	virtual std::string ToString() const override
-	{
-		return m_Name;
-	}
-
-
-private:
-
-	std::string m_Name;
-
-};
 
 int _tmain(int argc, _TCHAR* argv[])
 {

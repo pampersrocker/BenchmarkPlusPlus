@@ -23,8 +23,6 @@ namespace bpp
 	private:
 
 	};
-
-	typedef BenchmarkBaseScenario BenchmarkScenario;
 }
 
 #endif // BPPBaseScenario_h__

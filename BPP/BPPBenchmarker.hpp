@@ -9,8 +9,6 @@ namespace bpp
 	template < class T >
 	class FactoryContainer;
 
-	typedef BenchmarkBaseScenario BenchmarkScenario;
-
 
 	/**
 	\brief The main class for benchmarking. Contains all scopes used for benchmarking, runs the benchmarks itself

@@ -5,6 +5,16 @@
 #include <Windows.h>
 
 #include "Factory/BPPBaseScenario.hpp"
+
+namespace bpp
+{
+#ifdef BPP_CUSTOM_SCENARIO
+	typedef BPP_CUSTOM_SCENARIO BenchmarkScenario;
+#else
+	typedef BenchmarkBaseScenario BenchmarkScenario;
+#endif // BPP_CUSTOM_SCENARIO
+}
+
 #include "Factory/BPPFactoryItem.hpp"
 #include "Factory/BPPBenchmarkableItem.hpp"
 #include "Factory/BPPFactoryContainer.hpp"
